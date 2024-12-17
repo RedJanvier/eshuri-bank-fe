@@ -1,0 +1,44 @@
+:root {
+  --blue: blue;
+  --dark-blue: rgb(0, 0, 86);
+}
+
+body.layout {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  height: 100vh;
+  width: 100vw;
+}
+
+nav, ul {
+  padding: 0;
+  background-color: blue;
+  max-width: 300px;
+}
+
+ul, li {
+  list-style-type: none;
+  width: 100%;
+}
+
+ul li {
+  margin: 6px 0;
+}
+
+nav a {
+  display: block;
+  padding: 12px 0 12px 32px;
+  color: white;
+  text-decoration: none;
+  width: 100%;
+}
+
+ul li:hover, ul li.active {
+  background: rgb(0, 0, 86);
+}
+
+main {
+  padding: 32px;
+  background-color: #ababab;
+}

@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Account</title>
+  <link rel="stylesheet" href="static/main-styles.css" />
+  <style>
+    header {
+      margin-bottom: 48px;
+    }
+
+    header div {
+      border: 1px solid black;
+      padding: 4px;
+    }
+    
+    form {
+      background-color: white;
+      border: 2px solid blue;
+    }
+
+    form .header {
+      display: flex;
+      margin: 24px 96px 0px 12px;
+      justify-content: space-between;
+      align-items: start;
+      font-size: 20px;
+    }
+
+    .flex {
+      display: flex;
+      flex-flow: row;
+      padding: 32px;
+      gap: 48px;
+    }
+
+    .flex > div {
+      min-width: 400px;
+      max-width: 500px;
+    }
+
+    form label {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    form input, form textarea, form button {
+      width: 240px;
+      margin: 8px;
+    }
+
+    label.amount {
+      width: max-content;
+      display: flex;
+      flex-flow: column;
+      margin-left: auto;
+      align-items: start;
+    }
+
+    form button {
+      float: right;
+      width: 250px;
+      padding: 4px;
+    }
+  </style>
+</head>
+<body class="layout">
+  <nav>
+    <ul>
+      <li>
+        <a href="/home">Home</a>
+      </li>
+      <li>
+        <a href="/transfer">Transfer</a>
+      </li>
+      <li class="active">
+        <a href="#">Account</a>
+      </li>
+      <li>
+        <a href="/cards">Cards</a>
+      </li>
+      <li>
+        <a href="/profile">Profile</a>
+      </li>
+      <li>
+        <a href="/apply-for-card">Apply For Card</a>
+      </li>
+      <li>
+        <a href="/logout">Logout</a>
+      </li>
+    </ul>
+  </nav>
+  <main> 
+    <header>
+      Today: 
+      <div>
+        Account Panel || Create New Account
+      </div>
+    </header>
+    <form action="" method="post">
+      <div class="header">
+        <span>Pass Book</span>
+        <img height="80" src="static/logo.png" alt="Bank Logo">
+        <span>Kota Bank</span>
+      </div>
+      <div class="flex">
+        <div class="p1">
+          <label>
+            Account Type:
+            <input required type="text" name="accountType">
+          </label>
+          <label>
+            PAN Number:
+            <input required type="number" name="panNumber">
+          </label>
+          <label>
+            Account Number:
+            <input required type="number" name="accountNumber">
+          </label>
+          <label>
+            Customer Name:
+            <input required type="text" name="customerName">
+          </label>
+          <label>
+            Address:
+            <textarea name="address" style="resize: vertical;"></textarea>
+          </label>
+          <label>
+            Adhar No:
+            <input required type="text" name="adharNumber">
+          </label>
+        </div>
+        <div class="p2">
+          <label>
+            Phone:
+            <input required type="tel" name="customerPhone">
+          </label>
+          <label>
+            Email:
+            <input required type="email" name="customerEmail">
+          </label>
+          <label>
+            IFSC:
+            <input required type="text" name="ifsc">
+          </label>
+          <label class="amount">
+            Amount Deposit:
+            <input required type="number" name="amount">
+          </label>
+          <button type="submit">Create Account</button>
+        </div>
+      </div>
+    </form>
+  </main>
+</body>
+</html>
