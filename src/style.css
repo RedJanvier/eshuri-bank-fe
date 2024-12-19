@@ -5,22 +5,101 @@
 
 
 *{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
 }
-.app{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100vh;
-  
+
+.nav {
+  @apply text-white py-8 px-6 flex flex-col gap-4;
 }
-.member{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-top: 20px;
+
+.nav-link {
+  @apply p-4 flex items-center gap-4 rounded-[4px] transition duration-300 hover:bg-light-blue;
+}
+
+.nav-link.active {
+  @apply bg-light-blue font-bold;
+}
+
+.nav-link img {
+  @apply w-6 h-6;
+}
+
+label {
+  @apply text-white block mb-2
+}
+
+.input {
+  @apply bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500;
+}
+
+.box-wrapper {
+  @apply bg-primary-blue px-8 py-12 rounded-md max-w-6xl mx-auto mt-10;
+}
+
+.inputs-wrapper {
+  @apply flex flex-col lg:flex-row items-end w-full gap-8;
+}
+
+.inputs-wrapper div {
+  @apply w-full;
+}
+
+button {
+  @apply text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800;
+}
+
+.mini-title {
+  @apply mb-6;
+}
+
+.cards {
+  @apply max-w-5xl mx-auto grid grid-cols-2 mt-4 w-full gap-5;
+}
+
+.card {
+  @apply p-3 border border-gray-400 rounded-md bg-gray-200
+}
+
+.card-title {
+  @apply flex items-center justify-between mb-3;
+}
+
+.card-title h4 {
+  @apply font-semibold text-lg uppercase
+}
+
+.card-title h3 {
+  @apply font-semibold uppercase
+}
+
+.card h1 {
+  @apply mb-4 font-semibold text-xl ps-0.5
+}
+
+
+.card-date {
+  @apply flex items-center justify-between mb-4
+}
+
+.card-back {
+  @apply border border-gray-400 rounded-md bg-gray-200
+}
+
+.card-p {
+  @apply text-center py-4;
+}
+
+.black-sign {
+  @apply bg-black h-12 w-full
+}
+.signature {
+  @apply h-12 w-[50%] border border-gray-400 rounded-md my-5 mx-auto
+}
+
+.footer-card {
+  @apply text-center flex flex-col space-y-2
+}
+
+.footer-card p {
+  @apply pb-3;
 }
