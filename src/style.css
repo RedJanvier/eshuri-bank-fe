@@ -24,3 +24,11 @@
   flex-direction: column;
   margin-top: 20px;
 }
+#main-content {
+  width: 100%;
+}
+@media (min-width: 992px) {
+  #main-content {
+    margin-left: 250px;
+}
+}
