@@ -44,7 +44,7 @@
                         <label>Account No: </label>
                         <div class="input-group mb-3">
                             <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="button-addon2"/>
-                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Search</button>
+                            <button class="btn btn-outline-secondary" type="button" id="button-search">Search</button>
                         </div>
 
                         <!-- Credit Card Display -->
@@ -54,21 +54,21 @@
                                 <p>Visa</p>
                             </div>
                             <div class="mb-2">
-                                <img src="../src/img/chip.png"alt="Bank Icon" style="width:50px;height:auto" />
+                                <img src="./img/chip.png"alt="Bank Icon" style="width:50px;height:auto" />
                             </div>
-                            <label class="mb-2">125******555</label>
-                            <label>Card Holder Name</label>
+                            <label class="mb-2" id="card-number">************</label>
+                            <!-- <label>Card Holder Name</label> -->
                         </div>
 
                         <!-- Card Information -->
                         <div class="mt-4">
                             <ul class="list-unstyled mt-3">
-                            <li class="mt-3">Card Type: Debit Card</li>
-                            <li class="mt-3">Card Number: 125******555</li>
-                            <li class="mt-3">Cvv Number: 123</li>
-                            <li class="mt-3">Issue Date: 12/24</li>
-                            <li class="mt-3">Expiry Date: 11/29</li>
-                            <li class="mt-3">Balance: $40</li>
+                            <!-- <li class="mt-3">Card Type: Debit Card</li> -->
+                            <li class="mt-3">Card Number: <span id="card-number2">***********</span></li>
+                            <!-- <li class="mt-3">Cvv Number: ****</li> -->
+                            <li class="mt-3">Issue Date: <span id="iss-date">**/****</span></li>
+                            <li class="mt-3">Expiry Date: <span id="exp-date">**/****</span></li>
+                            <!-- <li class="mt-3">Balance: $40</li> -->
                             </ul>
                         </div>
                         </div>
@@ -104,7 +104,43 @@
 
         </div>
     </div>
-    <script src="../src/sidebar.js"></script>
+    <script src="./dist/sidebar.js"></script>
+    <script>
+      const searchButton = document.getElementById("button-search");
+        const accountInput = document.querySelector(".form-control");
+
+        const cardNumberElement = document.getElementById("card-number");
+        const cardNumberElement2 = document.getElementById("card-number2");
+        const cardIssueDateElement = document.getElementById("iss-date");
+        const cardExpDateElement = document.getElementById("exp-date");
+
+searchButton.addEventListener("click", async () => {
+    const cardId = accountInput.value;
+
+    try {
+        const response = await fetch(`http://localhost:8080/api/cards/${cardId}`);
+
+        if (!response.ok) {
+            throw new Error("Failed to fetch role details");
+        }
+
+        const card = await response.json();
+
+        if (card) {
+            cardNumberElement.textContent = `${card.cardNumber || "N/A"}`;
+            cardNumberElement2.textContent = `${card.cardNumber || "N/A"}`;
+            cardIssueDateElement.textContent = `${card.issueDate || "N/A"}`;
+            cardExpDateElement.textContent = `${card.expireDate || "N/A"}`
+        } else {
+            alert("Card not found with the given ID");
+        }
+    } catch (error) {
+        console.error("Error:", error);
+        alert("Error fetching role details");
+    }
+});
+
+    </script>
 </body>
 
 </html>
